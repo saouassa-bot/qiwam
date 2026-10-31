@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <base href="/qiwam/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="قِوام - نظام إدارة المؤسسات التربوية الجزائرية">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="قِوام">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>قِوام</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: #0A1828;
+    }
+    #loading {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #0A1828;
+      color: #C9A24B;
+      font-family: 'Tajawal', Arial, sans-serif;
+      font-size: 18px;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <div id="loading">قِوام — جارٍ التحميل...</div>
+
+  <script>
+    // يُخفي شاشة "جارٍ التحميل..." بمجرد رسم فلاتر لأول إطار فعلي —
+    // بدون هذا، تبقى الشاشة معلَّقة للأبد فوق كل شيء (z-index: 9999)
+    // حتى لو كان التطبيق قد اكتمل تحميله وعمل بشكل طبيعي تمامًا تحتها.
+    window.addEventListener('flutter-first-frame', function () {
+      var el = document.getElementById('loading');
+      if (el) el.remove();
+    });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
